@@ -7,6 +7,7 @@ function Dashboard() {
     const [patientCount, setPatientCount] = useState(0);
 const [doctorCount, setDoctorCount] = useState(0);
 const [appointmentCount, setAppointmentCount] = useState(0);
+const [todayAppointmentCount, setTodayAppointmentCount] = useState(0);
 useEffect(() => {
     loadDashboardData();
 }, []);
@@ -26,10 +27,20 @@ const loadDashboardData = () => {
         .catch((error) => console.log(error));
 
     getAllAppointments()
-        .then((response) => {
-            setAppointmentCount(response.data.length);
-        })
-        .catch((error) => console.log(error));
+    .then((response) => {
+        const appointments = response.data;
+
+        setAppointmentCount(appointments.length);
+
+        const today = new Date().toISOString().split("T")[0];
+
+        const todayAppointments = appointments.filter(
+            (appointment) => appointment.appointmentDate === today
+        );
+
+        setTodayAppointmentCount(todayAppointments.length);
+    })
+    .catch((error) => console.log(error));
 };
     return (
         <div className="container mt-5">
@@ -68,7 +79,7 @@ const loadDashboardData = () => {
                 <div className="col-md-3">
                     <div className="card text-center shadow p-3">
                         <h5>Today's Appointments</h5>
-                        <h2>0</h2>
+                        <h2>{todayAppointmentCount}</h2>
                     </div>
                 </div>
 
