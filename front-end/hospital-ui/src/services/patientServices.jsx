@@ -12,3 +12,7 @@ export const savePatient = (patient)=>{
     return axios.post(API_URL, patient);
 
 };
+
+export const getPatientById = (id) => {
+    return axios.get(`${API_URL}/${id}`);
+};

@@ -6,6 +6,10 @@ export const getDoctors = () => {
     return axios.get(API_URL);
 };
 
+export const getDoctorById = (id) => {
+    return axios.get(`${API_URL}/${id}`);
+};
+
 export const addDoctor = (doctor) => {
     return axios.post(API_URL, doctor);
 };

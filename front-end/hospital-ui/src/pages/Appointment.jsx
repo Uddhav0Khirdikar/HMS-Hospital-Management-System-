@@ -1,11 +1,15 @@
 import AppointmentForm from "../components/AppointmentForm";
 import { addAppointment } from "../services/appointmentService";
+import { useSearchParams } from "react-router-dom";
 
 function Appointment() {
 
+    const [searchParams] = useSearchParams();
+
+    const doctorId = searchParams.get("doctorId");
+
     const handleAppointmentSubmit = (appointment) => {
 
-        // Convert patientId & doctorId into objects
         const appointmentData = {
             patient: {
                 id: appointment.patientId
@@ -40,12 +44,14 @@ function Appointment() {
 
         <div>
 
-            <AppointmentForm onSubmit={handleAppointmentSubmit} />
+            <AppointmentForm
+                onSubmit={handleAppointmentSubmit}
+                selectedDoctorId={doctorId}
+            />
 
         </div>
 
     );
-
 }
 
 export default Appointment;

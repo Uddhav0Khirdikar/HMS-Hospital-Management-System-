@@ -2,11 +2,11 @@ import { useEffect, useState } from "react";
 import { getPatients } from "../services/patientServices";
 import { getDoctors } from "../services/doctorServices";
 
-function AppointmentForm({ onSubmit }) {
+function AppointmentForm({ onSubmit, selectedDoctorId }) {
 
     const [appointment, setAppointment] = useState({
         patientId: "",
-        doctorId: "",
+        doctorId: selectedDoctorId || "",
         appointmentDate: "",
         appointmentTime: "",
         status: "BOOKED"
@@ -15,13 +15,27 @@ function AppointmentForm({ onSubmit }) {
     const [patients, setPatients] = useState([]);
     const [doctors, setDoctors] = useState([]);
 
-    // Load Patients and Doctors when component loads
+    // Load Patients and Doctors
     useEffect(() => {
 
         loadPatients();
         loadDoctors();
 
     }, []);
+
+    // Set doctor when coming from Doctor Profile
+    useEffect(() => {
+
+        if (selectedDoctorId) {
+
+            setAppointment((previous) => ({
+                ...previous,
+                doctorId: selectedDoctorId
+            }));
+
+        }
+
+    }, [selectedDoctorId]);
 
     const loadPatients = () => {
 
@@ -72,7 +86,10 @@ function AppointmentForm({ onSubmit }) {
                 Book Appointment
             </h2>
 
-            <form onSubmit={handleSubmit} className="card p-4 shadow">
+            <form
+                    onSubmit={handleSubmit}
+                    className="card p-4 shadow border-0 appointment-form"
+            >
 
                 {/* Patient Dropdown */}
                 <select
@@ -109,7 +126,7 @@ function AppointmentForm({ onSubmit }) {
                     {doctors.map((doctor) => (
 
                         <option key={doctor.id} value={doctor.id}>
-                            {doctor.name}
+                            Dr. {doctor.name}
                         </option>
 
                     ))}
@@ -137,19 +154,6 @@ function AppointmentForm({ onSubmit }) {
                 />
 
                 {/* Status */}
-                <select
-                    className="form-control mb-3"
-                    name="status"
-                    value={appointment.status}
-                    onChange={handleChange}
-                >
-
-                    <option value="BOOKED">BOOKED</option>
-                    <option value="COMPLETED">COMPLETED</option>
-                    <option value="CANCELLED">CANCELLED</option>
-
-                </select>
-
                 <button className="btn btn-primary">
                     Book Appointment
                 </button>
@@ -159,7 +163,6 @@ function AppointmentForm({ onSubmit }) {
         </div>
 
     );
-
 }
 
 export default AppointmentForm;
