@@ -46,12 +46,15 @@ function Home() {
                                 <button
                                     className="btn btn-outline-primary btn-lg px-4"
                                     onClick={() => navigate("/doctors")}
->
-                                      View Doctors
+                                    >
+                                    View Doctors
                                  </button>
-                                 <button onClick={() => navigate("/patients")}>
-                                     View Patients
-                                </button>
+                                 <button
+                                    className="btn btn-outline-primary"
+                                    onClick={() => navigate("/patients")}
+                                    >
+                                    View Patients
+                                 </button>
                             </div>
 
                         </div>
@@ -169,15 +172,17 @@ function Home() {
                                     🏥
                                 </div>
 
-                                <h4 className="mt-3">
-                                    Patient Management
-                                </h4>
-
-                                <p className="text-muted">
-                                    Keep patient information organized
-                                    and easy to manage.
+                              <h5>Patient Care</h5>
+                                <p>
+                                         Manage patient information, medical details, and healthcare records.
                                 </p>
 
+                                <button
+                                        className="btn btn-outline-primary"
+                                        onClick={() => navigate("/patients")}
+                                >
+                                        View Patients
+                            </button>
                             </div>
 
                         </div>

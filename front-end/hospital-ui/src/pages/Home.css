@@ -330,3 +330,21 @@ body {
     border-radius: 10px;
     font-weight: 600;
 }
+
+.services-section .btn {
+    margin-top: 10px;
+    border-radius: 8px;
+    padding: 8px 18px;
+    font-weight: 500;
+}
+
+.service-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.service-card .btn {
+    margin-top: auto;
+    align-self: flex-start;
+}
