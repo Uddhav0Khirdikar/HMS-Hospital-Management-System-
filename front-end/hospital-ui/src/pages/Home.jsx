@@ -1,9 +1,12 @@
+
 import "./Home.css";
 import Footer from "../components/Footer";
 import { useNavigate } from "react-router-dom";
 
 function Home() {
-     const navigate = useNavigate();
+
+    const navigate = useNavigate();
+
     return (
 
         <div>
@@ -39,22 +42,24 @@ function Home() {
                                 <button
                                     className="btn btn-primary btn-lg me-3 px-4"
                                     onClick={() => navigate("/appointments")}
->
-                                     Book Appointment
-                                 </button>
+                                >
+                                    Book Appointment
+                                </button>
+
+                                <button
+                                    className="btn btn-outline-primary btn-lg me-3 px-4"
+                                    onClick={() => navigate("/doctors")}
+                                >
+                                    View Doctors
+                                </button>
 
                                 <button
                                     className="btn btn-outline-primary btn-lg px-4"
-                                    onClick={() => navigate("/doctors")}
-                                    >
-                                    View Doctors
-                                 </button>
-                                 <button
-                                    className="btn btn-outline-primary"
                                     onClick={() => navigate("/patients")}
-                                    >
+                                >
                                     View Patients
-                                 </button>
+                                </button>
+
                             </div>
 
                         </div>
@@ -96,6 +101,7 @@ function Home() {
                 <div className="container">
 
                     {/* Section Heading */}
+
                     <div className="text-center mb-5">
 
                         <p className="text-primary fw-bold">
@@ -115,10 +121,13 @@ function Home() {
 
 
                     {/* Service Cards */}
+
                     <div className="row g-4">
 
+
                         {/* Doctor Consultation */}
-                        <div className="col-md-4">
+
+                        <div className="col-12 col-md-6 col-lg-4">
 
                             <div className="service-card h-100 p-4 text-center">
 
@@ -135,13 +144,21 @@ function Home() {
                                     get the right care for your needs.
                                 </p>
 
+                                <button
+                                    className="btn btn-outline-primary mt-auto"
+                                    onClick={() => navigate("/doctors")}
+                                >
+                                    View Doctors
+                                </button>
+
                             </div>
 
                         </div>
 
 
                         {/* Appointment Booking */}
-                        <div className="col-md-4">
+
+                        <div className="col-12 col-md-6 col-lg-4">
 
                             <div className="service-card h-100 p-4 text-center">
 
@@ -158,13 +175,21 @@ function Home() {
                                     quickly and conveniently.
                                 </p>
 
+                                <button
+                                    className="btn btn-outline-primary mt-auto"
+                                    onClick={() => navigate("/appointments")}
+                                >
+                                    Book Appointment
+                                </button>
+
                             </div>
 
                         </div>
 
 
-                        {/* Patient Management */}
-                        <div className="col-md-4">
+                        {/* Patient Care */}
+
+                        <div className="col-12 col-md-6 col-lg-4">
 
                             <div className="service-card h-100 p-4 text-center">
 
@@ -172,17 +197,127 @@ function Home() {
                                     🏥
                                 </div>
 
-                              <h5>Patient Care</h5>
-                                <p>
-                                         Manage patient information, medical details, and healthcare records.
+                                <h4 className="mt-3">
+                                    Patient Care
+                                </h4>
+
+                                <p className="text-muted">
+                                    Manage patient information, medical details,
+                                    and healthcare records.
                                 </p>
 
                                 <button
-                                        className="btn btn-outline-primary"
-                                        onClick={() => navigate("/patients")}
+                                    className="btn btn-outline-primary mt-auto"
+                                    onClick={() => navigate("/patients")}
                                 >
-                                        View Patients
-                            </button>
+                                    View Patients
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            {/* ================= WHY CHOOSE US ================= */}
+
+            <section className="why-section py-5">
+
+                <div className="container">
+
+                    <div className="row align-items-center">
+
+                        {/* Left */}
+
+                        <div className="col-md-6">
+
+                            <p className="text-primary fw-bold">
+                                WHY CHOOSE US
+                            </p>
+
+                            <h2 className="why-title">
+                                Healthcare You Can Trust
+                            </h2>
+
+                            <p className="text-muted mt-3">
+                                Our hospital management system makes healthcare
+                                simpler, faster, and more organized for patients
+                                and healthcare professionals.
+                            </p>
+
+                        </div>
+
+
+                        {/* Right */}
+
+                        <div className="col-md-6">
+
+                            <div className="why-item">
+
+                                <span className="why-icon">
+                                    ✓
+                                </span>
+
+                                <div>
+
+                                    <h5>
+                                        Trusted Doctors
+                                    </h5>
+
+                                    <p className="text-muted">
+                                        Connect with experienced healthcare professionals.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <div className="why-item">
+
+                                <span className="why-icon">
+                                    ✓
+                                </span>
+
+                                <div>
+
+                                    <h5>
+                                        Easy Appointments
+                                    </h5>
+
+                                    <p className="text-muted">
+                                        Schedule and manage appointments with ease.
+                                    </p>
+
+                                </div>
+
+                            </div>
+
+
+                            <div className="why-item">
+
+                                <span className="why-icon">
+                                    ✓
+                                </span>
+
+                                <div>
+
+                                    <h5>
+                                        Organized Healthcare
+                                    </h5>
+
+                                    <p className="text-muted">
+                                        Keep patient and appointment information organized.
+                                    </p>
+
+                                </div>
+
                             </div>
 
                         </div>
@@ -193,150 +328,124 @@ function Home() {
 
             </section>
 
-            {/* ================= WHY CHOOSE US ================= */}
 
-<section className="why-section py-5">
+            {/* ================= STATISTICS SECTION ================= */}
 
-    <div className="container">
+            <section className="stats-section py-5">
 
-        <div className="row align-items-center">
+                <div className="container">
 
-            {/* Left */}
-            <div className="col-md-6">
+                    <div className="row text-center g-4">
 
-                <p className="text-primary fw-bold">
-                    WHY CHOOSE US
-                </p>
+                        <div className="col-md-3">
 
-                <h2 className="why-title">
-                    Healthcare You Can Trust
-                </h2>
+                            <div className="stat-item">
 
-                <p className="text-muted mt-3">
-                    Our hospital management system makes healthcare
-                    simpler, faster, and more organized for patients
-                    and healthcare professionals.
-                </p>
+                                <h2>
+                                    500+
+                                </h2>
 
-            </div>
+                                <p>
+                                    Patients Served
+                                </p>
+
+                            </div>
+
+                        </div>
 
 
-            {/* Right */}
-            <div className="col-md-6">
+                        <div className="col-md-3">
 
-                <div className="why-item">
-                    <span className="why-icon">✓</span>
+                            <div className="stat-item">
 
-                    <div>
-                        <h5>Trusted Doctors</h5>
-                        <p className="text-muted">
-                            Connect with experienced healthcare professionals.
-                        </p>
+                                <h2>
+                                    50+
+                                </h2>
+
+                                <p>
+                                    Qualified Doctors
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div className="col-md-3">
+
+                            <div className="stat-item">
+
+                                <h2>
+                                    1000+
+                                </h2>
+
+                                <p>
+                                    Appointments
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div className="col-md-3">
+
+                            <div className="stat-item">
+
+                                <h2>
+                                    24/7
+                                </h2>
+
+                                <p>
+                                    Healthcare Support
+                                </p>
+
+                            </div>
+
+                        </div>
+
                     </div>
+
                 </div>
 
-                <div className="why-item">
-                    <span className="why-icon">✓</span>
+            </section>
 
-                    <div>
-                        <h5>Easy Appointments</h5>
-                        <p className="text-muted">
-                            Schedule and manage appointments with ease.
+
+            {/* ================= CALL TO ACTION ================= */}
+
+            <section className="cta-section py-5">
+
+                <div className="container">
+
+                    <div className="cta-card text-center">
+
+                        <h2>
+                            Ready to Take Control of Your Healthcare?
+                        </h2>
+
+                        <p>
+                            Book an appointment with a trusted doctor
+                            and experience simpler healthcare management.
                         </p>
+
+                        <button
+                            className="btn btn-primary btn-lg px-4"
+                            onClick={() => navigate("/appointments")}
+                        >
+                            Book an Appointment
+                        </button>
+
                     </div>
+
                 </div>
 
-                <div className="why-item">
-                    <span className="why-icon">✓</span>
+            </section>
 
-                    <div>
-                        <h5>Organized Healthcare</h5>
-                        <p className="text-muted">
-                            Keep patient and appointment information organized.
-                        </p>
-                    </div>
-                </div>
 
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-        {/* ================= STATISTICS SECTION ================= */}
-
-<section className="stats-section py-5">
-
-    <div className="container">
-
-        <div className="row text-center g-4">
-
-            <div className="col-md-3">
-                <div className="stat-item">
-                    <h2>500+</h2>
-                    <p>Patients Served</p>
-                </div>
-            </div>
-
-            <div className="col-md-3">
-                <div className="stat-item">
-                    <h2>50+</h2>
-                    <p>Qualified Doctors</p>
-                </div>
-            </div>
-
-            <div className="col-md-3">
-                <div className="stat-item">
-                    <h2>1000+</h2>
-                    <p>Appointments</p>
-                </div>
-            </div>
-
-            <div className="col-md-3">
-                <div className="stat-item">
-                    <h2>24/7</h2>
-                    <p>Healthcare Support</p>
-                </div>
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-        {/* ================= CALL TO ACTION ================= */}
-
-<section className="cta-section py-5">
-
-    <div className="container">
-
-        <div className="cta-card text-center">
-
-            <h2>
-                Ready to Take Control of Your Healthcare?
-            </h2>
-
-            <p>
-                Book an appointment with a trusted doctor
-                and experience simpler healthcare management.
-            </p>
-
-            <button
-                 className="btn btn-primary btn-lg px-4"
-                  onClick={() => navigate("/appointments")}
->
-                 Book an Appointment
-             </button>
-
-        </div>
-
-    </div>
-
-</section>
             <Footer />
+
         </div>
-        
+
     );
 
 }

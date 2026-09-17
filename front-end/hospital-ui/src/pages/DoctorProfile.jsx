@@ -81,7 +81,7 @@ function DoctorProfile() {
                                 className="btn btn-primary px-4"
                                 onClick={() => navigate(`/appointments?doctorId=${doctor.id}`)}
                                         >
-                                Book an Appointment
+                            Book an Appointment
                             </button>
 
                     </div>

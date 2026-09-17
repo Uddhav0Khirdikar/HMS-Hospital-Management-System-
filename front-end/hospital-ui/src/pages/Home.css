@@ -1,156 +1,122 @@
-body {
-    background: #7087a7;
+/* ================= GENERAL ================= */
+
+* {
+    box-sizing: border-box;
 }
-/* =========================
-   HERO SECTION
-========================= */
+
+html,
+body,
+#root {
+    width: 100%;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+
+/* ================= HERO ================= */
 
 .home-hero {
-    background: linear-gradient(135deg, #eaf6ff, #ffffff);
-    min-height: 75vh;
+    width: 100%;
+    min-height: 80vh;
+    background: #f5fbff;
     display: flex;
     align-items: center;
-    position: relative;
-    overflow: hidden;
 }
 
-.home-hero .container {
-    width: 100%;
-}
-
-.home-hero .row {
+.min-vh-75 {
     min-height: 75vh;
 }
 
-.home-hero h1 {
-    font-size: 3.5rem;
-    font-weight: 700;
-    line-height: 1.2;
-}
 
-.home-hero p {
-    max-width: 600px;
-}
-
-
-/* =========================
-   HERO BUTTONS
-========================= */
+/* Hero buttons */
 
 .home-hero .btn {
     border-radius: 10px;
-    transition: all 0.3s ease;
-}
-
-.home-hero .btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(13, 110, 253, 0.2);
-}
-
-.home-hero .btn-outline-primary:hover {
-    transform: translateY(-2px);
+    font-weight: 600;
+    margin-bottom: 10px;
 }
 
 
-/* =========================
-   HERO HOSPITAL CARD
-========================= */
+/* Hero card */
 
 .home-card {
-    background: #ffffff;
-    border: 1px solid #e5eef8;
-    border-radius: 20px;
-    padding: 50px !important;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-    transition: all 0.3s ease;
-}
-
-.home-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-}
-
-.home-card h2 {
-    font-size: 3.5rem;
+    background: white;
+    border: 1px solid #e5eef5;
 }
 
 
-/* =========================
-   SERVICES SECTION
-========================= */
+/* ================= SERVICES ================= */
 
 .services-section {
-    background: #f8fbff;
-    padding-top: 80px !important;
-    padding-bottom: 80px !important;
+    width: 100%;
+    background: #ffffff;
 }
-
-
-/* =========================
-   SERVICES HEADING
-========================= */
 
 .services-title {
-    font-size: 2.5rem;
     font-weight: 700;
-    margin-bottom: 15px;
 }
 
-
-/* =========================
-   SERVICE CARDS
-========================= */
-
 .service-card {
-    background: #ffffff;
-    border: none;
-    border-radius: 20px;
-    padding: 35px !important;
-    transition: all 0.3s ease;
+    height: 100%;
+    min-height: 300px;
+    padding: 30px !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    background: white;
+    border: 1px solid #e8eef3;
+    border-radius: 18px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .service-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
 }
-
-
-/* =========================
-   SERVICE ICONS
-========================= */
 
 .service-icon {
-    font-size: 3rem;
-    line-height: 1;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: #eaf6ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
 }
-
-
-/* =========================
-   SERVICE CARD TEXT
-========================= */
 
 .service-card h4 {
     font-weight: 600;
 }
 
 .service-card p {
-    margin-top: 15px;
-    line-height: 1.7;
+    max-width: 300px;
+    line-height: 1.6;
 }
 
-/* =========================
-   WHY CHOOSE US
-========================= */
+.service-card .btn {
+    margin-top: auto;
+    border-radius: 8px;
+    padding: 8px 20px;
+    font-weight: 500;
+}
+
+
+/* ================= WHY CHOOSE US ================= */
 
 .why-section {
-    background: #ffffff;
-    padding-top: 90px !important;
-    padding-bottom: 90px !important;
+    width: 100%;
+    background: #f8fafc;
 }
 
 .why-title {
-    font-size: 2.5rem;
     font-weight: 700;
 }
 
@@ -162,84 +128,64 @@ body {
 }
 
 .why-icon {
+    min-width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: #eaf6ff;
+    color: #0d6efd;
     display: flex;
     align-items: center;
     justify-content: center;
-    min-width: 35px;
-    height: 35px;
-    background: #eaf3ff;
-    color: #0d6efd;
-    border-radius: 50%;
     font-weight: bold;
 }
 
-.why-item h5 {
-    font-weight: 600;
-    margin-bottom: 5px;
-}
 
-/* =========================
-   STATISTICS SECTION
-========================= */
+/* ================= STATISTICS ================= */
 
 .stats-section {
-    background: #3e8bff;
-    padding-top: 60px !important;
-    padding-bottom: 60px !important;
-}
-
-.stat-item {
-    color: #ffffff;
+    width: 100%;
+    background: #0d6efd;
+    color: white;
 }
 
 .stat-item h2 {
-    font-size: 2.5rem;
+    font-size: 36px;
     font-weight: 700;
     margin-bottom: 5px;
 }
 
 .stat-item p {
     margin: 0;
-    opacity: 0.9;
-    font-size: 1rem;
 }
 
-/* =========================
-   CALL TO ACTION
-========================= */
+
+/* ================= CTA ================= */
 
 .cta-section {
+    width: 100%;
     background: #ffffff;
-    padding-top: 80px !important;
-    padding-bottom: 80px !important;
 }
 
 .cta-card {
-    background: linear-gradient(135deg, #f0f7ff, #ffffff);
-    border: 1px solid #e2edf9;
-    border-radius: 24px;
     padding: 60px 30px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+    background: #f5fbff;
+    border-radius: 20px;
 }
 
 .cta-card h2 {
-    font-size: 2.4rem;
     font-weight: 700;
 }
 
 .cta-card p {
-    color: #6c757d;
     max-width: 650px;
     margin: 15px auto 25px;
 }
 
-.cta-card .btn {
-    border-radius: 10px;
-}
 
 /* ================= FOOTER ================= */
 
 .footer-section {
+    width: 100%;
     background: #0f172a;
     color: white;
 }
@@ -263,88 +209,51 @@ body {
     margin: 0;
 }
 
-/* ================= DOCTOR CARDS ================= */
 
-.doctor-avatar {
-    width: 80px;
-    height: 80px;
-    margin: 0 auto;
-    border-radius: 50%;
-    background: #eaf6ff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 38px;
-}
+/* ================= MOBILE ================= */
 
-.doctor-card {
-    border: none;
-    border-radius: 18px;
-    padding: 10px;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
+@media (max-width: 767px) {
 
-.doctor-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-}
+    .home-hero {
+        min-height: auto;
+        padding: 40px 0;
+    }
 
-/* ================= DOCTOR PROFILE ================= */
+    .home-hero h1 {
+        font-size: 2.4rem;
+    }
 
-.doctor-profile-card {
-    border-radius: 20px;
-}
+    .home-hero .lead {
+        font-size: 1rem;
+    }
 
-.doctor-profile-avatar {
-    width: 110px;
-    height: 110px;
-    margin: 0 auto;
-    border-radius: 50%;
-    background: #eaf6ff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 55px;
-}
+    .home-hero .btn {
+        width: 100%;
+        margin: 5px 0;
+    }
 
-.doctor-profile-card h1 {
-    font-weight: 700;
-}
+    .home-card {
+        margin-top: 30px;
+    }
 
-/* ================= APPOINTMENT FORM ================= */
+    .service-card {
+        min-height: 280px;
+    }
 
-.appointment-form {
-    max-width: 700px;
-    margin: 0 auto;
-    border-radius: 18px;
-}
+    .why-item {
+        margin-top: 25px;
+    }
 
-.appointment-form select,
-.appointment-form input {
-    min-height: 48px;
-    border-radius: 10px;
-}
+    .stat-item {
+        padding: 10px;
+    }
 
-.appointment-form button {
-    min-height: 48px;
-    border-radius: 10px;
-    font-weight: 600;
-}
+    .stat-item h2 {
+        font-size: 30px;
+    }
 
-.services-section .btn {
-    margin-top: 10px;
-    border-radius: 8px;
-    padding: 8px 18px;
-    font-weight: 500;
-}
+    .cta-card {
+        padding: 40px 20px;
+    }
 
-.service-card {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-}
-
-.service-card .btn {
-    margin-top: auto;
-    align-self: flex-start;
 }
