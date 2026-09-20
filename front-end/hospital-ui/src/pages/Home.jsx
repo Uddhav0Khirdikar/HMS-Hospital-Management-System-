@@ -60,6 +60,13 @@ function Home() {
                                     View Patients
                                 </button>
 
+                                <button
+                                    className="btn btn-outline-primary btn-lg px-4"
+                                    onClick={() => navigate("/appointment-management")}
+                                >
+                                    Manage Appointments
+                                </button>
+
                             </div>
 
                         </div>

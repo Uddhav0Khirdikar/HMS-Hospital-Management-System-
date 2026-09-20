@@ -5,7 +5,6 @@ import { useSearchParams } from "react-router-dom";
 function Appointment() {
 
     const [searchParams] = useSearchParams();
-
     const doctorId = searchParams.get("doctorId");
 
     const handleAppointmentSubmit = (appointment) => {
@@ -37,20 +36,15 @@ function Appointment() {
                 alert("Failed to Book Appointment");
 
             });
-
     };
 
     return (
-
         <div>
-
             <AppointmentForm
                 onSubmit={handleAppointmentSubmit}
                 selectedDoctorId={doctorId}
             />
-
         </div>
-
     );
 }
 

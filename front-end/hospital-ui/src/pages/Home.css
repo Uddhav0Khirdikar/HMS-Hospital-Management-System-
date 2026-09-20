@@ -257,3 +257,19 @@ body {
     }
 
 }
+
+/* ================= APPOINTMENT MANAGEMENT ================= */
+
+.appointment-management-table {
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.appointment-management-table th {
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.appointment-management-table td {
+    vertical-align: middle;
+}
