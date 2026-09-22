@@ -16,3 +16,7 @@ export const savePatient = (patient)=>{
 export const getPatientById = (id) => {
     return axios.get(`${API_URL}/${id}`);
 };
+
+export const deletePatient = (id) => {
+    return axios.delete(`${API_URL}/${id}`);
+};

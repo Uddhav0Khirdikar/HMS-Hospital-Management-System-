@@ -1,6 +1,23 @@
 import { useNavigate } from "react-router-dom";
-
+import { deletePatient } from "../services/patientServices";
 function PatientCard({ patient }) {
+
+const handleDelete = () => {
+
+    if (!window.confirm("Are you sure you want to delete this patient?")) {
+        return;
+    }
+
+    deletePatient(patient.id)
+        .then(() => {
+            alert("Patient Deleted Successfully");
+            window.location.reload();
+        })
+        .catch((error) => {
+            console.log(error);
+            alert("Failed to Delete Patient");
+        });
+};
 
     const navigate = useNavigate();
 
@@ -32,6 +49,12 @@ function PatientCard({ patient }) {
                         onClick={handleViewProfile}
                     >
                         View Profile
+                    </button>
+                    <button
+                        className="btn btn-outline-danger ms-2"
+                        onClick={handleDelete}
+                    >
+                        Delete
                     </button>
 
                 </div>

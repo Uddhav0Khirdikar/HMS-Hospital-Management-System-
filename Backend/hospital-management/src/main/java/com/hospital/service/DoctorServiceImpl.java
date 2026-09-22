@@ -42,9 +42,17 @@ public class DoctorServiceImpl implements DoctorService{
         doctorRepository.deleteById(id);
     }
 
-	@Override
-	public Doctor updateDoctor(Long id, Doctor doctor) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+    @Override
+    public Doctor updateDoctor(Long id, Doctor doctor) {
+
+        Doctor existingDoctor = doctorRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Doctor not found"));
+
+        existingDoctor.setName(doctor.getName());
+        existingDoctor.setSpecialization(doctor.getSpecialization());
+        existingDoctor.setQualification(doctor.getQualification());
+        existingDoctor.setExperience(doctor.getExperience());
+
+        return doctorRepository.save(existingDoctor);
+    }
 }

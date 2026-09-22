@@ -1,36 +1,35 @@
 import { updateAppointment } from "../services/appointmentService";
-
-function AppointmentList({ appointments, onAppointmentUpdated })  {
+function AppointmentList({ appointments, onAppointmentUpdated }) {
 
     const handleComplete = (appointment) => {
 
-    updateAppointment(appointment.id, {
-        status: "COMPLETED"
-    })
-        .then(() => {
+        updateAppointment(appointment.id, {
+            status: "COMPLETED"
+        })
+            .then(() => {
                 alert("Appointment completed successfully");
                 onAppointmentUpdated();
             })
-        .catch((error) => {
-            console.log(error);
-            alert("Failed to complete appointment");
-        });
+            .catch((error) => {
+                console.log(error);
+                alert("Failed to complete appointment");
+            });
+    };
 
     const handleCancel = (appointment) => {
 
-    updateAppointment(appointment.id, {
-        status: "CANCELLED"
-    })
-        .then(() => {
-            alert("Appointment cancelled successfully");
-            onAppointmentUpdated();
+        updateAppointment(appointment.id, {
+            status: "CANCELLED"
         })
-        .catch((error) => {
-            console.log(error);
-            alert("Failed to cancel appointment");
-        });
-};
-};
+            .then(() => {
+                alert("Appointment cancelled successfully");
+                onAppointmentUpdated();
+            })
+            .catch((error) => {
+                console.log(error);
+                alert("Failed to cancel appointment");
+            });
+    };
 
     return (
         <div className="table-responsive">

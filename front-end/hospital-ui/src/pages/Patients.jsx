@@ -1,10 +1,32 @@
 import { useEffect, useState } from "react";
 import { getPatients } from "../services/patientServices";
 import PatientCard from "../components/PatientCard";
+import PatientForm from "../components/patientForm";
 
 function Patients() {
 
     const [patients, setPatients] = useState([]);
+
+    const handlePatientSubmit = (patient) => {
+
+    savePatient(patient)
+        .then((response) => {
+
+            console.log(response.data);
+
+            alert("Patient Registered Successfully");
+
+            setPatients([...patients, response.data]);
+
+        })
+        .catch((error) => {
+
+            console.log(error);
+
+            alert("Failed to Register Patient");
+
+        });
+    };
 
     useEffect(() => {
 
@@ -36,7 +58,8 @@ function Patients() {
                 </p>
 
             </div>
-
+            
+            <PatientForm onSubmit={handlePatientSubmit} />
             <div className="row">
 
                 {patients.map((patient) => (

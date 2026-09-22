@@ -32,6 +32,23 @@ public class PatientServiceImpl
         return repository.findById(id)
                 .orElseThrow();
     }
+    
+    @Override
+    public Patient updatePatient(Long id, Patient patient) {
+
+        Patient existingPatient = repository.findById(id)
+                .orElseThrow();
+
+        existingPatient.setName(patient.getName());
+        existingPatient.setAge(patient.getAge());
+        existingPatient.setGender(patient.getGender());
+        existingPatient.setPhone(patient.getPhone());
+        existingPatient.setAddress(patient.getAddress());
+        existingPatient.setBloodGroup(patient.getBloodGroup());
+        existingPatient.setDisease(patient.getDisease());
+
+        return repository.save(existingPatient);
+    }
 
     @Override
     public void deletePatient(Long id) {
