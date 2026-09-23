@@ -13,13 +13,19 @@ function Login() {
 
         e.preventDefault();
 
-        axios.post("http://localhost:8080/admin/login", {
+        if (!username.trim() || !password.trim()) {
+            alert("Username and password are required");
+            return;
+        }
+         axios.post("http://localhost:8080/admin/login", {
             username: username,
             password: password
         })
             .then((response) => {
 
-                if (response.data === true) {
+                console.log("LOGIN RESPONSE:", response.data, typeof response.data);
+
+               if (response.data === true || response.data === "true") {
                     
                     localStorage.setItem("isLoggedIn", "true");
                     

@@ -15,7 +15,7 @@ package com.hospital.entity;
 
 	    private String name;
 
-	    private int age;
+	    private Integer age;
 
 	    private String gender;
 
@@ -45,11 +45,11 @@ package com.hospital.entity;
 	    }
 
 
-	    public int getAge() {
+	    public Integer getAge() {
 	        return age;
 	    }
 
-	    public void setAge(int age) {
+	    public void setAge(Integer age) {
 	        this.age = age;
 	    }
 

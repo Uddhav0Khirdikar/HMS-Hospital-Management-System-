@@ -73,7 +73,15 @@ function AppointmentForm({ onSubmit, selectedDoctorId }) {
     const handleSubmit = (e) => {
 
         e.preventDefault();
-
+        if (
+    !appointment.patientId ||
+    !appointment.doctorId ||
+    !appointment.appointmentDate ||
+    !appointment.appointmentTime
+    ) {
+        alert("Please fill all appointment details");
+        return;
+    }
         onSubmit(appointment);
 
     };

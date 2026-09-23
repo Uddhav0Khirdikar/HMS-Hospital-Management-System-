@@ -16,7 +16,15 @@
     };
     const handleSubmit = (e) => {
         e.preventDefault();
-
+        if (
+    !doctor.name.trim() ||
+    !doctor.specialization.trim() ||
+    !doctor.qualification.trim() ||
+    !doctor.experience
+    ) {
+        alert("Please fill all required doctor details");
+        return;
+    }
         onSubmit(doctor);
     };
 

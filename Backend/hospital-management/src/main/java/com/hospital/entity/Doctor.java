@@ -16,7 +16,7 @@ public class Doctor {
     private String name;
     private String specialization;
     private String qualification;
-	private int experience;
+	private Integer experience;
 	private String email;
 	private Long phone;
 
@@ -68,11 +68,11 @@ public class Doctor {
 		this.qualification = qualification;
 	}
 
-	public int getExperience() {
+	public Integer getExperience() {
 		return experience;
 	}
 
-	public void setExperience(int experience) {
+	public void setExperience(Integer experience) {
 		this.experience = experience;
 	}
 

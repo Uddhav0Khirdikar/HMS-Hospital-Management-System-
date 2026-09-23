@@ -21,6 +21,8 @@ function Appointment() {
             status: appointment.status
         };
 
+        console.log("APPOINTMENT DATA:", appointmentData);
+
         addAppointment(appointmentData)
             .then((response) => {
 

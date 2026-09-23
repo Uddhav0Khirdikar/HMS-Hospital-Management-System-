@@ -22,6 +22,10 @@ function PatientForm({ onSubmit }) {
     const handleSubmit = (e) => {
         e.preventDefault();
 
+        if (!patient.name.trim() || !patient.age || !patient.gender || !patient.phone.trim()) {
+        alert("Please fill all required patient details");
+            return;
+            }
         // Send patient data to PatientPage
         onSubmit(patient);
 
