@@ -1,31 +1,34 @@
 import { useEffect, useState } from "react";
-import { getPatients } from "../services/patientServices";
+import { getPatients, savePatient } from "../services/patientServices";
 import PatientCard from "../components/PatientCard";
 import PatientForm from "../components/patientForm";
 
 function Patients() {
 
     const [patients, setPatients] = useState([]);
+    const [showForm, setShowForm] = useState(false);
 
     const handlePatientSubmit = (patient) => {
 
-    savePatient(patient)
-        .then((response) => {
+        savePatient(patient)
+            .then((response) => {
 
-            console.log(response.data);
+                console.log(response.data);
 
-            alert("Patient Registered Successfully");
+                alert("Patient Registered Successfully");
 
-            setPatients([...patients, response.data]);
+                setPatients([...patients, response.data]);
 
-        })
-        .catch((error) => {
+                setShowForm(false);
 
-            console.log(error);
+            })
+            .catch((error) => {
 
-            alert("Failed to Register Patient");
+                console.log(error);
 
-        });
+                alert("Failed to Register Patient");
+
+            });
     };
 
     useEffect(() => {
@@ -58,8 +61,22 @@ function Patients() {
                 </p>
 
             </div>
-            
-            <PatientForm onSubmit={handlePatientSubmit} />
+
+            <div className="text-center mb-4">
+
+                <button
+                    className="btn btn-primary"
+                    onClick={() => setShowForm(!showForm)}
+                >
+                    {showForm ? "Close Registration" : "Register Patient"}
+                </button>
+
+            </div>
+
+            {showForm && (
+                <PatientForm onSubmit={handlePatientSubmit} />
+            )}
+
             <div className="row">
 
                 {patients.map((patient) => (

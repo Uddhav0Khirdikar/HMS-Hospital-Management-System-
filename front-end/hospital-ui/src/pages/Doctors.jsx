@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
-import { getDoctors } from "../services/doctorServices";
+import DoctorForm from "../components/doctorForm";
+import { getDoctors, addDoctor } from "../services/doctorServices";
 import DoctorCard from "../components/DoctorCard";
 
 function Doctors() {
 
     const [doctors, setDoctors] = useState([]);
+    const [showForm, setShowForm] = useState(false);
 
     useEffect(() => {
 
@@ -17,6 +19,27 @@ function Doctors() {
             });
 
     }, []);
+
+    const handleDoctorSubmit = (doctor) => {
+
+        addDoctor(doctor)
+            .then((response) => {
+
+                alert("Doctor Registered Successfully");
+
+                setDoctors([...doctors, response.data]);
+
+                setShowForm(false);
+
+            })
+            .catch((error) => {
+
+                console.log(error);
+
+                alert("Failed to Register Doctor");
+
+            });
+    };
 
     return (
 
@@ -39,20 +62,35 @@ function Doctors() {
 
             </div>
 
+            <div className="text-center mb-4">
+
+                <button
+                    className="btn btn-primary"
+                    onClick={() => setShowForm(!showForm)}
+                >
+                    {showForm ? "Close Registration" : "Register Doctor"}
+                </button>
+
+            </div>
+
+            {showForm && (
+                <DoctorForm onSubmit={handleDoctorSubmit} />
+            )}
 
             <div className="row">
 
                 {doctors.map((doctor) => (
+
                     <DoctorCard
                         key={doctor.id}
                         doctor={doctor}
                     />
+
                 ))}
 
             </div>
 
         </div>
-
     );
 }
 

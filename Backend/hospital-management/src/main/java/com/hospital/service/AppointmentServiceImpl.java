@@ -1,6 +1,7 @@
 package com.hospital.service;
 
 import com.hospital.entity.Appointment;
+import com.hospital.exception.ResourceNotFoundException;
 import com.hospital.entity.Doctor;
 import com.hospital.entity.Patient;
 import com.hospital.repository.AppointmentRepository;
@@ -27,10 +28,18 @@ public class AppointmentServiceImpl implements AppointmentService {
 
     @Override
     public Appointment saveAppointment(Appointment appointment) {
-    	Patient patient = patientRepository.findById(appointment.getPatient().getId()).orElseThrow();
+    	Patient patient = patientRepository.findById(appointment.getPatient().getId())
+    	        .orElseThrow(() ->
+    	                new ResourceNotFoundException(
+    	                        "Patient not found with id: " + appointment.getPatient().getId()
+    	                ));
   
 
-    	Doctor doctor = doctorRepository.findById(appointment.getDoctor().getId()).orElseThrow();
+    	Doctor doctor = doctorRepository.findById(appointment.getDoctor().getId())
+    	        .orElseThrow(() ->
+    	                new ResourceNotFoundException(
+    	                        "Doctor not found with id: " + appointment.getDoctor().getId()
+    	                ));
 
     	appointment.setPatient(patient);
     	appointment.setDoctor(doctor);
@@ -51,12 +60,27 @@ public class AppointmentServiceImpl implements AppointmentService {
 
     @Override
     public Appointment updateAppointment(Long id, Appointment appointment) {
-        appointment.setId(id);
-        return appointmentRepository.save(appointment);
+
+        Appointment existingAppointment = appointmentRepository.findById(id)
+                .orElseThrow(() ->
+                        new ResourceNotFoundException(
+                                "Appointment not found with id: " + id
+                        ));
+
+        existingAppointment.setStatus(appointment.getStatus());
+
+        return appointmentRepository.save(existingAppointment);
     }
 
     @Override
     public void deleteAppointment(Long id) {
+
+        if (!appointmentRepository.existsById(id)) {
+            throw new ResourceNotFoundException(
+                    "Appointment not found with id: " + id
+            );
+        }
+
         appointmentRepository.deleteById(id);
     }
 }

@@ -1,6 +1,7 @@
 package com.hospital.Controller;
 
 import com.hospital.entity.Doctor;
+import jakarta.validation.Valid;
 import com.hospital.service.DoctorService;
 import org.springframework.web.bind.annotation.*;
 
@@ -31,7 +32,7 @@ public class DoctorController {
 
     // Save doctor
     @PostMapping
-    public Doctor saveDoctor(@RequestBody Doctor doctor) {
+    public Doctor saveDoctor(@Valid @RequestBody Doctor doctor) {
         return doctorService.saveDoctor(doctor);
     }
 

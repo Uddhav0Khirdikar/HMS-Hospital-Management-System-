@@ -50,14 +50,14 @@ function Home() {
                                     className="btn btn-outline-primary btn-lg me-3 px-4"
                                     onClick={() => navigate("/doctors")}
                                 >
-                                    View Doctors
+                                    Register or View Doctors
                                 </button>
 
                                 <button
-                                    className="btn btn-outline-primary btn-lg px-4"
+                                    className="btn btn-outline-primary btn-lg me-3 px-4"
                                     onClick={() => navigate("/patients")}
                                 >
-                                    View Patients
+                                    Register or View Patients
                                 </button>
 
                                 <button

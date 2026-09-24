@@ -1,11 +1,11 @@
 package com.hospital.service;
-
+import com.hospital.exception.ResourceNotFoundException;
 import com.hospital.entity.Doctor;
 import com.hospital.repository.DoctorRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+import com.hospital.exception.ResourceNotFoundException;
 @Service
 public class DoctorServiceImpl implements DoctorService{
 
@@ -31,7 +31,8 @@ public class DoctorServiceImpl implements DoctorService{
     @Override
     public Doctor getDoctorById(Long id) {
         return doctorRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Doctor not found"));
+        		.orElseThrow(() ->
+                new ResourceNotFoundException("Doctor not found with id: " + id));
     }
 
     

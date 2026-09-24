@@ -1,6 +1,7 @@
 package com.hospital.Controller;
 
 import com.hospital.entity.Appointment;
+import jakarta.validation.Valid;
 import com.hospital.service.AppointmentService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -21,7 +22,7 @@ public class AppointmentController {
 
     // Create Appointment
     @PostMapping
-    public Appointment saveAppointment(@RequestBody Appointment appointment) {
+    public Appointment saveAppointment(@Valid @RequestBody Appointment appointment) {
         return appointmentService.saveAppointment(appointment);
     }
 

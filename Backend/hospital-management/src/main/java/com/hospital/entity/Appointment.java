@@ -1,6 +1,7 @@
 package com.hospital.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 import lombok.AllArgsConstructor;
@@ -25,9 +26,9 @@ public class Appointment {
     @ManyToOne
     @JoinColumn(name = "doctor_id")
     private Doctor doctor;
-
+    @NotNull
     private LocalDate appointmentDate;
-
+    @NotNull
     private LocalTime appointmentTime;
     public Long getId() {
 		return id;

@@ -15,6 +15,7 @@ export const getAppointmentById = (id) => {
 };
 
 export const updateAppointment = (id, appointment) => {
+            
     return axios.put(`${API_URL}/${id}`, appointment);
 };
 

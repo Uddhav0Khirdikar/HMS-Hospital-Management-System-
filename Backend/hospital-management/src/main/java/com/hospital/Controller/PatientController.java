@@ -1,6 +1,7 @@
 package com.hospital.Controller;
 
 import com.hospital.entity.Patient;
+import jakarta.validation.Valid;
 import com.hospital.service.PatientService;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,8 +20,7 @@ public class PatientController {
     }
 
     @PostMapping
-    public Patient savePatient(
-            @RequestBody Patient patient) {
+    public Patient savePatient(@Valid @RequestBody Patient patient) {
     	 System.out.println(patient.getName());
     	    System.out.println(patient.getAge());
         return service.savePatient(patient);

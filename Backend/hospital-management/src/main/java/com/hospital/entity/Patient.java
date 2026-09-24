@@ -1,6 +1,7 @@
 package com.hospital.entity;
 
 	import jakarta.persistence.*;
+	import jakarta.validation.constraints.NotBlank;
 	import lombok.*;
 
 	@Entity
@@ -12,20 +13,26 @@ package com.hospital.entity;
 	    @Id
 	    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	    private Long id;
-
+	    
+	    @NotBlank(message = "Patient name is required")
 	    private String name;
 
 	    private Integer age;
-
+	    
+	    @NotBlank(message = "Gender is required")
 	    private String gender;
 
+	    @NotBlank(message = "Disease is required")
 	    private String disease;
+
+	    @NotBlank(message = "Address is required")
+	    private String address;
+
+	    @NotBlank(message = "Blood group is required")
+	    
+	    private String bloodGroup;
 	    
 	    private Long phone;
-	    
-	    private String address;
-	    
-	    private	String bloodGroup;
 	    
 	    public Long getId() {
 	        return id;

@@ -1,6 +1,7 @@
 package com.hospital.service;
 
 import com.hospital.entity.Patient;
+import com.hospital.exception.ResourceNotFoundException;
 import com.hospital.repository.PatientRepository;
 import org.springframework.stereotype.Service;
 
@@ -30,14 +31,16 @@ public class PatientServiceImpl
     @Override
     public Patient getPatientById(Long id) {
         return repository.findById(id)
-                .orElseThrow();
+        		.orElseThrow(() ->
+                new ResourceNotFoundException("Patient not found with id: " + id));
     }
     
     @Override
     public Patient updatePatient(Long id, Patient patient) {
 
         Patient existingPatient = repository.findById(id)
-                .orElseThrow();
+        		.orElseThrow(() ->
+                new ResourceNotFoundException("Patient not found with id: " + id));
 
         existingPatient.setName(patient.getName());
         existingPatient.setAge(patient.getAge());

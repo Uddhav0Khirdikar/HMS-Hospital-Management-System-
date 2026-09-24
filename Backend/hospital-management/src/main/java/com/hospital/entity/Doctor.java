@@ -1,5 +1,7 @@
 package com.hospital.entity;
 import jakarta.persistence.*;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
@@ -12,11 +14,17 @@ public class Doctor {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+	@NotBlank(message = "Doctor name is required")
+	private String name;
 
-    private String name;
-    private String specialization;
-    private String qualification;
+	@NotBlank(message = "Specialization is required")
+	private String specialization;
+
+	@NotBlank(message = "Qualification is required")
+	private String qualification;
+	
 	private Integer experience;
+	@NotBlank(message = "Email is required")
 	private String email;
 	private Long phone;
 
