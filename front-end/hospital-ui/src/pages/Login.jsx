@@ -49,6 +49,12 @@ function Login() {
             });
     };
 
+    const isLoggedIn = localStorage.getItem("isLoggedIn");
+
+    if (isLoggedIn) {
+        return <Navigate to="/" replace />;
+    }
+
     return (
         <div className="container py-5">
 

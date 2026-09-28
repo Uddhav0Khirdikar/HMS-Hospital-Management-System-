@@ -1,24 +1,24 @@
 import axios from "axios";
-
-const API_URL = "http://localhost:8080/appointments";
+import API_URL from "./api";
+const APPOINTMENTS_API_URL = `${API_URL}/appointments`;
 
 export const addAppointment = (appointment) => {
-    return axios.post(API_URL, appointment);
+    return axios.post(APPOINTMENTS_API_URL, appointment);
 };
 
 export const getAllAppointments = () => {
-    return axios.get(API_URL);
+    return axios.get(APPOINTMENTS_API_URL);
 };
 
 export const getAppointmentById = (id) => {
-    return axios.get(`${API_URL}/${id}`);
+    return axios.get(`${APPOINTMENTS_API_URL}/${id}`);
 };
 
 export const updateAppointment = (id, appointment) => {
             
-    return axios.put(`${API_URL}/${id}`, appointment);
+    return axios.put(`${APPOINTMENTS_API_URL}/${id}`, appointment);
 };
 
 export const deleteAppointment = (id) => {
-    return axios.delete(`${API_URL}/${id}`);
+    return axios.delete(`${APPOINTMENTS_API_URL}/${id}`);
 };
