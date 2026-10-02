@@ -7,6 +7,7 @@ import PatientProfile from "./pages/PatientProfile";
 import AppointmentManagement from "./pages/AppointmentManagement";
 import EditDoctor from "./pages/EditDoctor";
 import Login from "./pages/Login";
+import Dashboard from "./pages/Dashboard";
 import Navbar from "./components/Navbar";
 import ProtectedRoute from "./components/ProtectedRoute";
 import { Routes, Route } from "react-router-dom";
@@ -19,6 +20,8 @@ function App() {
     <Routes>
 
       <Route path="/" element={ <ProtectedRoute> <Home /> </ProtectedRoute> } />
+
+      <Route path="/dashboard" element={ <ProtectedRoute> <Dashboard /> </ProtectedRoute> } />
 
       <Route path="/doctors" element={ <ProtectedRoute> <Doctors /> </ProtectedRoute> } />
 

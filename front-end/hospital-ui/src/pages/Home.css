@@ -1,4 +1,4 @@
-/* ================= GENERAL ================= */
+/* ================= GENERAL & RESET ================= */
 
 * {
     box-sizing: border-box;
@@ -11,265 +11,618 @@ body,
     min-height: 100%;
     margin: 0;
     padding: 0;
+    text-align: left;
 }
 
 body {
     overflow-x: hidden;
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+    color: #334155;
+    background-color: #ffffff;
 }
 
+/* Smooth transitions */
+a, button {
+    transition: all 0.25s ease;
+}
 
-/* ================= HERO ================= */
+/* ================= SECTION BADGES / KICKERS ================= */
+
+.home-hero .text-primary.fw-bold,
+.services-section .text-primary.fw-bold,
+.why-section .text-primary.fw-bold {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #eaf2ff;
+    color: #0d6efd !important;
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.85px;
+    text-transform: uppercase;
+    border: 1px solid rgba(13, 110, 253, 0.18);
+    box-shadow: 0 2px 6px rgba(13, 110, 253, 0.06);
+    margin-bottom: 16px;
+}
+
+/* ================= HERO SECTION ================= */
 
 .home-hero {
     width: 100%;
-    min-height: 80vh;
-    background: #f5fbff;
+    min-height: 85vh;
+    background: radial-gradient(ellipse at 88% 18%, rgba(13, 110, 253, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 12% 82%, rgba(13, 202, 240, 0.08) 0%, transparent 50%),
+                linear-gradient(180deg, #f8fbfe 0%, #f0f6fc 100%);
     display: flex;
     align-items: center;
+    position: relative;
+    border-bottom: 1px solid #e8eff6;
+    padding: 40px 0;
 }
 
 .min-vh-75 {
-    min-height: 75vh;
+    min-height: 72vh;
 }
 
+.home-hero h1 {
+    font-size: clamp(2.3rem, 4.4vw, 3.75rem);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+    color: #0f172a;
+    margin-bottom: 18px;
+}
 
-/* Hero buttons */
+.home-hero .lead {
+    font-size: 1.12rem;
+    color: #475569 !important;
+    line-height: 1.65;
+    max-width: 580px;
+}
+
+/* Hero Action Buttons */
+.home-hero .mt-4 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+}
 
 .home-hero .btn {
-    border-radius: 10px;
+    border-radius: 14px;
     font-weight: 600;
-    margin-bottom: 10px;
+    font-size: 1.05rem;
+    padding: 14px 28px;
+    margin: 0 !important;
+    letter-spacing: 0.1px;
 }
 
+.home-hero .btn-primary {
+    background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%);
+    border: none;
+    color: #ffffff;
+    box-shadow: 0 6px 18px rgba(13, 110, 253, 0.3);
+}
 
-/* Hero card */
+.home-hero .btn-primary:hover {
+    background: linear-gradient(135deg, #0b5ed7 0%, #084298 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(13, 110, 253, 0.4);
+    color: #ffffff;
+}
 
+.home-hero .btn-outline-primary {
+    background: #ffffff;
+    border: 1.5px solid #cbd5e1;
+    color: #1e293b;
+}
+
+.home-hero .btn-outline-primary:hover {
+    background: #0d6efd;
+    border-color: #0d6efd;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(13, 110, 253, 0.25);
+}
+
+/* Hero Feature Card */
 .home-card {
-    background: white;
-    border: 1px solid #e5eef5;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(12px);
+    border: 1px solid #e2e8f0;
+    border-radius: 24px !important;
+    box-shadow: 0 20px 45px -10px rgba(13, 110, 253, 0.12),
+                0 0 1px 1px rgba(226, 232, 240, 0.8) !important;
+    padding: 44px 32px !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    max-width: 420px;
+    margin: 0 auto;
 }
 
+.home-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 25px 55px -12px rgba(13, 110, 253, 0.18),
+                0 0 1px 1px rgba(13, 110, 253, 0.3) !important;
+}
 
-/* ================= SERVICES ================= */
+.home-card h2 {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #eaf2ff 0%, #e0effe 100%);
+    border-radius: 20px;
+    font-size: 38px;
+    box-shadow: 0 8px 20px rgba(13, 110, 253, 0.12);
+}
+
+.home-card h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 8px;
+}
+
+.home-card p {
+    color: #64748b !important;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ================= SERVICES SECTION ================= */
 
 .services-section {
     width: 100%;
     background: #ffffff;
+    padding: 85px 0 !important;
 }
 
 .services-title {
-    font-weight: 700;
+    font-size: clamp(1.9rem, 3.2vw, 2.5rem);
+    font-weight: 800;
+    color: #0f172a;
+    letter-spacing: -0.02em;
+    margin-bottom: 12px;
+}
+
+.services-section .lead,
+.services-section .text-muted {
+    color: #64748b !important;
+    font-size: 1rem;
+    max-width: 560px;
+    margin: 0 auto;
 }
 
 .service-card {
     height: 100%;
-    min-height: 300px;
-    padding: 30px !important;
+    min-height: 320px;
+    padding: 36px 26px !important;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    background: white;
-    border: 1px solid #e8eef3;
-    border-radius: 18px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    background: #ffffff;
+    border: 1.5px solid #edf2f7;
+    border-radius: 20px;
+    box-shadow: 0 6px 24px rgba(15, 23, 42, 0.04);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.service-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #0d6efd, #0dcaf0);
+    opacity: 0;
+    transition: opacity 0.25s ease;
 }
 
 .service-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+    transform: translateY(-8px);
+    border-color: #cbd5e1;
+    box-shadow: 0 18px 36px -8px rgba(13, 110, 253, 0.12),
+                0 0 1px 1px rgba(13, 110, 253, 0.15);
+}
+
+.service-card:hover::before {
+    opacity: 1;
 }
 
 .service-icon {
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    background: #eaf6ff;
+    width: 74px;
+    height: 74px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #eaf2ff 0%, #e0effe 100%);
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 32px;
+    font-size: 34px;
+    margin-bottom: 16px;
+    box-shadow: 0 6px 16px rgba(13, 110, 253, 0.1);
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.service-card:hover .service-icon {
+    transform: scale(1.08) rotate(2deg);
+    background: linear-gradient(135deg, #d8e8ff 0%, #cbe3ff 100%);
 }
 
 .service-card h4 {
-    font-weight: 600;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 10px;
 }
 
 .service-card p {
-    max-width: 300px;
+    color: #64748b !important;
+    font-size: 0.92rem;
     line-height: 1.6;
+    max-width: 290px;
+    margin-bottom: 22px;
 }
 
 .service-card .btn {
     margin-top: auto;
-    border-radius: 8px;
-    padding: 8px 20px;
-    font-weight: 500;
+    border-radius: 12px;
+    padding: 11px 26px;
+    font-weight: 600;
+    font-size: 0.98rem;
+    border: 1.5px solid #0d6efd;
+    color: #0d6efd;
+    background: transparent;
+    transition: all 0.25s ease;
 }
 
+.service-card .btn:hover {
+    background: #0d6efd;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(13, 110, 253, 0.3);
+}
 
 /* ================= WHY CHOOSE US ================= */
 
 .why-section {
     width: 100%;
-    background: #f8fafc;
+    background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+    padding: 85px 0 !important;
+    border-top: 1px solid #e8eff6;
+    border-bottom: 1px solid #e8eff6;
 }
 
 .why-title {
-    font-weight: 700;
+    font-size: clamp(1.9rem, 3.2vw, 2.5rem);
+    font-weight: 800;
+    color: #0f172a;
+    letter-spacing: -0.02em;
+    margin-bottom: 14px;
+}
+
+.why-section .text-muted {
+    font-size: 1.05rem;
+    color: #64748b !important;
+    line-height: 1.65;
+    max-width: 500px;
 }
 
 .why-item {
     display: flex;
     align-items: flex-start;
-    gap: 15px;
-    margin-bottom: 25px;
+    gap: 18px;
+    margin-bottom: 20px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 20px 22px;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.03);
+    transition: all 0.25s ease;
+}
+
+.why-item:hover {
+    transform: translateX(6px);
+    border-color: #0d6efd;
+    box-shadow: 0 8px 24px rgba(13, 110, 253, 0.1);
 }
 
 .why-icon {
-    min-width: 35px;
-    height: 35px;
-    border-radius: 50%;
-    background: #eaf6ff;
-    color: #0d6efd;
+    min-width: 42px;
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #0d6efd 0%, #0b5ed7 100%);
+    color: #ffffff;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-weight: bold;
+    font-weight: 700;
+    font-size: 1.15rem;
+    box-shadow: 0 4px 12px rgba(13, 110, 253, 0.28);
+    flex-shrink: 0;
 }
 
+.why-item h5 {
+    font-size: 1.12rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 4px;
+}
+
+.why-item p {
+    font-size: 0.92rem;
+    color: #64748b !important;
+    margin: 0;
+    line-height: 1.5;
+}
 
 /* ================= STATISTICS ================= */
 
 .stats-section {
     width: 100%;
-    background: #0d6efd;
-    color: white;
+    background: linear-gradient(135deg, #093375 0%, #0d6efd 55%, #0284c7 100%);
+    color: #ffffff;
+    padding: 80px 0 !important;
+    position: relative;
+    overflow: hidden;
+}
+
+.stats-section::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.12) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.stat-item {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 32px 20px;
+    transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+}
+
+.stat-item:hover {
+    transform: translateY(-6px);
+    background: rgba(255, 255, 255, 0.18);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.15);
 }
 
 .stat-item h2 {
-    font-size: 36px;
-    font-weight: 700;
-    margin-bottom: 5px;
+    font-size: 2.85rem;
+    font-weight: 800;
+    color: #ffffff !important;
+    letter-spacing: -0.03em;
+    margin-bottom: 8px;
+    line-height: 1;
 }
 
 .stat-item p {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.92);
     margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
 }
 
-
-/* ================= CTA ================= */
+/* ================= CALL TO ACTION (CTA) ================= */
 
 .cta-section {
     width: 100%;
     background: #ffffff;
+    padding: 85px 0 !important;
 }
 
 .cta-card {
-    padding: 60px 30px;
-    background: #f5fbff;
-    border-radius: 20px;
+    padding: 65px 36px;
+    background: linear-gradient(135deg, #f0f7ff 0%, #e2effe 50%, #f6faff 100%);
+    border: 1.5px solid #cfe2fe;
+    border-radius: 24px;
+    box-shadow: 0 16px 40px -10px rgba(13, 110, 253, 0.08);
+    position: relative;
+    overflow: hidden;
 }
 
 .cta-card h2 {
-    font-weight: 700;
+    font-size: clamp(1.8rem, 3.2vw, 2.4rem);
+    font-weight: 800;
+    color: #0f172a;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
 }
 
 .cta-card p {
-    max-width: 650px;
-    margin: 15px auto 25px;
+    font-size: 1.1rem;
+    color: #475569;
+    max-width: 620px;
+    margin: 0 auto 30px;
+    line-height: 1.65;
 }
 
+.cta-card .btn {
+    background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%);
+    border: none;
+    border-radius: 14px;
+    font-weight: 600;
+    padding: 16px 42px;
+    font-size: 1.15rem;
+    color: #ffffff;
+    box-shadow: 0 8px 24px rgba(13, 110, 253, 0.35);
+    transition: all 0.25s ease;
+}
+
+.cta-card .btn:hover {
+    background: linear-gradient(135deg, #0b5ed7 0%, #084298 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(13, 110, 253, 0.45);
+    color: #ffffff;
+}
 
 /* ================= FOOTER ================= */
 
 .footer-section {
     width: 100%;
-    background: #0f172a;
-    color: white;
+    background: #090e17;
+    color: #f8fafc;
+    padding-top: 65px;
+    border-top: 1px solid #1e293b;
 }
 
-.footer-section h4,
+.footer-section h4 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 16px;
+}
+
 .footer-section h5 {
-    font-weight: 600;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 18px;
+    letter-spacing: 0.2px;
 }
 
 .footer-section p {
-    color: #cbd5e1;
+    color: #ffffff;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin-bottom: 10px;
+}
+
+.footer-section p.text-white,
+.footer-section .text-white {
+    color: #ffffff !important;
+}
+
+.footer-section .col-md-2 p,
+.footer-section .col-md-3 p {
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.footer-section a {
+    color: #ffffff !important;
+    transition: all 0.2s ease;
+}
+
+.footer-section a:hover {
+    color: #38bdf8 !important;
+    transform: translateX(3px);
 }
 
 .footer-bottom {
-    border-top: 1px solid #334155;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
     text-align: center;
-    padding: 20px 0;
+    padding: 16px 0;
+    margin-top: 0;
 }
 
 .footer-bottom p {
     margin: 0;
+    color: #ffffff !important;
+    font-size: 0.88rem;
 }
 
+/* ================= APPOINTMENT MANAGEMENT ================= */
 
-/* ================= MOBILE ================= */
+.appointment-management-table {
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+    border: 1px solid #e2e8f0;
+}
 
-@media (max-width: 767px) {
+.appointment-management-table th {
+    font-weight: 600;
+    white-space: nowrap;
+    background-color: #f8fafc;
+    color: #1e293b;
+    padding: 14px 16px;
+    border-bottom: 2px solid #e2e8f0;
+}
 
+.appointment-management-table td {
+    vertical-align: middle;
+    padding: 14px 16px;
+    color: #334155;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.appointment-management-table tr:hover td {
+    background-color: #f8fafc;
+}
+
+/* ================= MOBILE RESPONSIVENESS ================= */
+
+@media (max-width: 991px) {
     .home-hero {
         min-height: auto;
-        padding: 40px 0;
+        padding: 50px 0;
     }
 
+    .home-card {
+        margin-top: 40px;
+    }
+
+    .why-item {
+        margin-top: 16px;
+    }
+}
+
+@media (max-width: 767px) {
     .home-hero h1 {
-        font-size: 2.4rem;
+        font-size: 2.2rem;
     }
 
     .home-hero .lead {
         font-size: 1rem;
     }
 
-    .home-hero .btn {
-        width: 100%;
-        margin: 5px 0;
+    .home-hero .mt-4 {
+        flex-direction: column;
+        align-items: stretch;
     }
 
-    .home-card {
-        margin-top: 30px;
+    .home-hero .btn {
+        width: 100%;
+        text-align: center;
     }
 
     .service-card {
         min-height: 280px;
-    }
-
-    .why-item {
-        margin-top: 25px;
+        padding: 28px 20px !important;
     }
 
     .stat-item {
-        padding: 10px;
+        padding: 22px 14px;
     }
 
     .stat-item h2 {
-        font-size: 30px;
+        font-size: 2.3rem;
     }
 
     .cta-card {
-        padding: 40px 20px;
+        padding: 40px 22px;
     }
 
-}
-
-/* ================= APPOINTMENT MANAGEMENT ================= */
-
-.appointment-management-table {
-    border-radius: 12px;
-    overflow: hidden;
-}
-
-.appointment-management-table th {
-    font-weight: 600;
-    white-space: nowrap;
-}
-
-.appointment-management-table td {
-    vertical-align: middle;
+    .why-item {
+        padding: 16px;
+    }
 }
